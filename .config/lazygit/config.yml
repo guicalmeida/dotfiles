@@ -1,0 +1,23 @@
+---
+os:
+  editPreset: nvim-remote
+  editCommand: nvr
+  editCommandTemplate: '{{editor}} --remote-send "<C-\\><C-n>:e {{filename}}<CR>"'
+  open: nvr --remote {{filename}}
+  openLink: xdg-open {{link}}
+gui:
+  theme:
+    activeBorderColor:
+      - green
+      - bold
+    inactiveBorderColor:
+      - white
+git:
+  commit:
+    editor: nvr -cc split --remote-wait +'set bufhidden=wipe'
+  paging:
+    externalDiffCommand: nvr -cc tabedit --remote {{.DiffFile}}
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never
+
